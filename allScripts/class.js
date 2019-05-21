@@ -25,6 +25,7 @@ class RectClass extends Physics {
         this.rotateZ = rotateZ;
 
         this.active = 0;
+        this.disableThrow = 1;
     }
     draw = () => draw(this);
     newPos = () => newPos(this);
@@ -40,10 +41,9 @@ class Catapult extends RectClass {
     drawCatapult = () => makeCatapult(this);
 
 }
-//todo:klasa fizyka dziedziczy po figurze a koło po fizyce
-//todo:klasa bird => koło i inne + ustawienie borderów
-//todo:4 ptaki birds
-//todopo uderzeniu już nie można rzucać ptakiem i ptak znika po czasie
+//changes:Chyba !! klasa fizyka dziedziczy po figurze a koło po fizyce
+//changes:klasa bird => koło i inne + ustawienie borderów
+//changes:4 ptaki birds zamiast Prost
 //todo:limit w naciąganiu procy {najlepiej jak by było to widać}
 //todo:jak ptak zniknie to kolejny wskakuje na miejsce procy
 //todo:moc ptaka >> przyda się przy naliczaniu punktów i odbiciach

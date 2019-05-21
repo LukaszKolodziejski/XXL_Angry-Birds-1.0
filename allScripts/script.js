@@ -2,7 +2,10 @@ var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 let wynik = 0;
 let i;
-const Prost = new RectClass();
+let Prost = [];
+for (i = 0; i < 4; i++) {
+    Prost.push(new RectClass(130 - i * 30));
+}
 const Slingshot = new Catapult(100, 100, `#441`);
 
 let Wall = [];
@@ -20,7 +23,7 @@ function upDateScene() {
     logicGame();
     text();
     Wall.forEach((e) => e.draw());
-    Prost.draw();
+    Prost.forEach((e) => e.draw());
     Slingshot.drawCatapult();
 }
 
@@ -35,9 +38,6 @@ function logicGame() {
             }
         }
     }
-    Wall.forEach((e) => {
-        //        if (e.crash(Prost)) e.speedX += .1;
-    });
     Wall = Wall.filter(checkCollision);
 }
 

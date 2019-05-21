@@ -47,18 +47,17 @@ function throwEl(e) {
 }
 
 function checkCollision(myWall) {
-    if (myWall.crash(Prost) && Prost.speedX > 5) {
-        myWall.speedX += .1;
-        Prost.speedX *= .7;
-        wynik += 50;
-        return true;
-    } // else if (wynik && .1 > (Prost.speedX + Prost.speedY)) {
-    //        setTimeout(() => {
-    //            Prost.color = `#2a2`;
-    //        }, 5000);
-    //    }
-    else {
-        //        Prost.speedX *= .9;
-        return !myWall.crash(Prost);
+    let yes = true;
+    for (i = 0; i < Prost.length; i++) {
+        if (myWall.crash(Prost[0])) {
+            myWall.speedX += .1;
+            Prost[i].speedX *= .7;
+            wynik += 50;
+            yes = false;
+            break;
+        } else {
+            yes = true;
+        }
     }
+    return yes
 }
