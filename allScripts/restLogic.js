@@ -9,4 +9,4 @@ function deleteElement() {
     }, 3000);
 }
 
-/* testing git and gitHub. */
+/* testing git and gitHub. testing git and gitHub. */
