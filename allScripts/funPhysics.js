@@ -4,18 +4,20 @@ function bounce(_this) {
 
 function airSlow(_this) {
     const ground = 260 - _this.height;
-    if (_this.speedX > 0) {
+    if (_this.speedX > 0.2) {
         if (ground === _this.y) {
             _this.speedX -= 3 * _this.airResistance;
         } else {
             _this.speedX -= _this.airResistance;
         }
-    } else if (_this.speedX < 0) {
+    } else if (_this.speedX < -0.2) {
         if (ground === _this.y) {
             _this.speedX += 3 * _this.airResistance;
         } else {
             _this.speedX += _this.airResistance;
         }
+    } else {
+        _this.speedX = 0;
     }
 }
 

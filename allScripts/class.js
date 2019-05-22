@@ -41,19 +41,16 @@ class Catapult extends RectClass {
     drawCatapult = () => makeCatapult(this);
 
 }
-//changes:Chyba !! klasa fizyka dziedziczy po figurze a koło po fizyce
-//changes:klasa bird => koło i inne + ustawienie borderów
+//changes:klasa bird => obrazy png
 //changes:4 ptaki birds zamiast Prost
 //todo:limit w naciąganiu procy {najlepiej jak by było to widać}
-//todo:jak ptak zniknie to kolejny wskakuje na miejsce procy
 //todo:moc ptaka >> przyda się przy naliczaniu punktów i odbiciach
-//todo:jak ptak wyleci poza ekran to znika i kolejny wskakuje na proce
 //todo: clasa piggs jako przeciwnik
 //changes:ptak oddaje energie na elementach
-//changes:ładniejsza proca
 //changes:zachowanie się elementów po uderzeniu z ptakiem
 //changes:animacja przy uderzaniu jakaś chmuraka
 //note:zbudowanie super budowli
+//future: najlepiej wczytywanie elementów w pliku txt
 //future:budowa ma mieć kilka elementów (drewno,szkło i kamień)
 //changes:naliczanie punktów za ściany
 //changes:zachowanie się ścian po uderzeniach z ptakiem

@@ -6,7 +6,7 @@ let Prost = [];
 for (i = 0; i < 4; i++) {
     Prost.push(new RectClass(130 - i * 30));
 }
-const Slingshot = new Catapult(100, 100, `#441`);
+//const Slingshot = new Catapult(100, 100, `#441`);
 
 let Wall = [];
 for (i = 0; i < 6; i++) {
@@ -53,6 +53,7 @@ function text() {
 function draw(_this) {
     ctx.save();
     _this.newPos();
+    setPositionImages();
 
     ctx.translate(_this.x, _this.y);
     ctx.rotate(_this.rotateZ * Math.PI / 180);
@@ -66,8 +67,8 @@ function newPos(_this) {
         _this.myGravity += _this.gravity;
         _this.x += _this.speedX;
         _this.y += _this.speedY + _this.myGravity;
-        if (_this.x > 700) _this.x = 0;
-        else if (_this.x < 0) _this.x = 700;
+        if (_this.x > 700) deleteElement(500);
+        else if (_this.x < 0) deleteElement(500);
         else if (_this.y + _this.height >= 260) {
             _this.y = 260 - _this.height;
             _this.bounce();

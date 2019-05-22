@@ -1,3 +1,7 @@
+window.addEventListener('load', () => {
+    const slingshot = document.getElementById('slingshot');
+});
+
 window.addEventListener('keydown', (e) => {
     Prost.forEach((el) => {
         if (e.keyCode == 37) el.speedX -= 5;
@@ -9,7 +13,7 @@ window.addEventListener('keydown', (e) => {
 
 
 canvas.addEventListener('mousedown', (e) => {
-    if (Prost[0].disableThrow && Prost.length && Prost[0].clicked(e.clientX, e.clientY)) {
+    if (Prost.length > 0 && Prost[0].disableThrow && Prost[0].clicked(e.clientX, e.clientY)) {
         Prost[0].active = 1;
         Prost[0].disableThrow = 0;
         Prost[0].x = e.clientX;
@@ -21,17 +25,16 @@ canvas.addEventListener('mousedown', (e) => {
 });
 
 canvas.addEventListener('mouseup', () => {
-    if (Prost[0].active) {
+    if (Prost.length > 0 && Prost[0].active) {
         Prost[0].throwEl();
         Prost[0].active = 0;
         Prost[0].throwPower = [0, 0, 0, 0];
-        deleteElement();
+        deleteElement(3000);
     }
-
 });
 
 canvas.addEventListener('mousemove', (e) => {
-    if (Prost.length && Prost[0].active) {
+    if (Prost.length > 0 && Prost[0].active) {
         Prost[0].x = e.clientX;
         Prost[0].y = e.clientY;
         Prost[0].throwPower[1] = Prost[0].x;
