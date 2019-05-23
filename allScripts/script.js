@@ -8,12 +8,12 @@ for (i = 0; i < 4; i++) {
 }
 //const Slingshot = new Catapult(100, 100, `#441`);
 
-let Wall = [];
-for (i = 0; i < 6; i++) {
-    for (let j = 0; j < 10; j++) {
-        Wall.push(new RectClass(520 + i * 25, 240 - j * 20, `#8${i+j*.2}${1+i-j*.1}`, 20, 20));
-    }
-}
+var Wall = [];
+//for (i = 0; i < 6; i++) {
+//    for (let j = 0; j < 10; j++) {
+//        Wall.push(new RectClass(520 + i * 25, 240 - j * 20, `#8${i+j*.2}${1+i-j*.1}`, 20, 20));
+//    }
+//}
 
 setInterval(upDateScene, 20);
 
@@ -24,7 +24,7 @@ function upDateScene() {
     text();
     Wall.forEach((e) => e.draw());
     Prost.forEach((e) => e.draw());
-    Slingshot.drawCatapult();
+    //    Slingshot.drawCatapult();
 }
 
 
