@@ -1,5 +1,12 @@
 window.addEventListener('load', () => {
     const slingshot = document.getElementById('slingshot');
+    const redBird = document.getElementById('redBird');
+    const blueBird = document.getElementById('blueBird');
+    const yellowBird = document.getElementById('yellowBird');
+    const pigSmall = document.getElementById('pigSmall');
+    const wood = document.getElementById('wood');
+    const grass = document.getElementById('grass');
+    beginPositioningObjects();
 });
 
 window.addEventListener('keydown', (e) => {
@@ -20,7 +27,6 @@ canvas.addEventListener('mousedown', (e) => {
         Prost[0].y = e.clientY;
         Prost[0].throwPower[0] = Prost[0].x;
         Prost[0].throwPower[2] = Prost[0].y;
-        //changes: zamiana prost na bird
     }
 });
 

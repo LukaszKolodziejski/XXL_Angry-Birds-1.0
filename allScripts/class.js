@@ -33,24 +33,19 @@ class RectClass extends Physics {
 }
 
 
-class Catapult extends RectClass {
-    constructor(x, y, color, width, height, rotateZ) {
-        super(x, y, color, width, height, rotateZ);
-        this.body = [];
+class AllObjects extends RectClass {
+    constructor(x, y, color, width, height, kindOfObcject) {
+        super(x, y, color, width, height);
+        this.kindOfObject = kindOfObcject;
     }
-    drawCatapult = () => makeCatapult(this);
-
 }
-//changes:klasa bird => obrazy png
-//changes:4 ptaki birds zamiast Prost
+//todo:gry bird spada pod obiektami to one go hamują
 //todo:limit w naciąganiu procy {najlepiej jak by było to widać}
 //todo:moc ptaka >> przyda się przy naliczaniu punktów i odbiciach
-//todo: clasa piggs jako przeciwnik
 //changes:ptak oddaje energie na elementach
 //changes:zachowanie się elementów po uderzeniu z ptakiem
 //changes:animacja przy uderzaniu jakaś chmuraka
 //note:zbudowanie super budowli
-//future: najlepiej wczytywanie elementów w pliku txt
 //future:budowa ma mieć kilka elementów (drewno,szkło i kamień)
 //changes:naliczanie punktów za ściany
 //changes:zachowanie się ścian po uderzeniach z ptakiem

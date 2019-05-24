@@ -1,19 +1,9 @@
-var canvas = document.getElementById('myCanvas');
-var ctx = canvas.getContext('2d');
-let wynik = 0;
-let i;
-let Prost = [];
-for (i = 0; i < 4; i++) {
-    Prost.push(new RectClass(130 - i * 30));
-}
-//const Slingshot = new Catapult(100, 100, `#441`);
-
-var Wall = [];
-//for (i = 0; i < 6; i++) {
-//    for (let j = 0; j < 10; j++) {
-//        Wall.push(new RectClass(520 + i * 25, 240 - j * 20, `#8${i+j*.2}${1+i-j*.1}`, 20, 20));
-//    }
-//}
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+let i, wynik = 0;
+const Prost = [];
+let Wall = [];
+let Grasses = [];
 
 setInterval(upDateScene, 20);
 
@@ -21,12 +11,12 @@ setInterval(upDateScene, 20);
 function upDateScene() {
     ctx.clearRect(0, 0, 700, 300);
     logicGame();
-    text();
+    Grasses.forEach((e) => e.draw());
     Wall.forEach((e) => e.draw());
     Prost.forEach((e) => e.draw());
-    //    Slingshot.drawCatapult();
+    //    slingshot.draw();
+    text();
 }
-
 
 function logicGame() {
     let len = Wall.length;
@@ -38,7 +28,9 @@ function logicGame() {
             }
         }
     }
-    Wall = Wall.filter(checkCollision);
+    if (Prost.length) {
+        Wall = Wall.filter(checkCollision);
+    }
 }
 
 function text() {
@@ -53,12 +45,12 @@ function text() {
 function draw(_this) {
     ctx.save();
     _this.newPos();
-    setPositionImages();
-
+    //    setPositionImages(slingshot, 123, 235, 20, 58);
     ctx.translate(_this.x, _this.y);
     ctx.rotate(_this.rotateZ * Math.PI / 180);
     ctx.fillStyle = _this.color;
-    ctx.fillRect(_this.width / -2, _this.height / -2, _this.width, _this.height);
+
+    setPositionImages(_this.kindOfObject, _this.width / -2, _this.height / -2, _this.width, _this.height);
     ctx.restore();
 }
 
@@ -69,10 +61,14 @@ function newPos(_this) {
         _this.y += _this.speedY + _this.myGravity;
         if (_this.x > 700) deleteElement(500);
         else if (_this.x < 0) deleteElement(500);
-        else if (_this.y + _this.height >= 260) {
-            _this.y = 260 - _this.height;
+        else if (_this.y + _this.height >= 252) {
+            _this.y = 252 - _this.height / 2;
             _this.bounce();
         }
+    }
+    if (_this.kindOfObject === grass) {
+        _this.y = 300 - _this.height / 2;
+        //fixme:wstawić tem if do nie zależnej funkcji tak samo jak dla slingshot'a
     }
     _this.airSlow();
 
@@ -87,30 +83,3 @@ function clicked(_this, a, b) {
         return true;
     } else false;
 }
-
-/* ----------------------------catapult------------------------- */
-
-function makeCatapult(e) {
-    var sticks = e.body;
-    if (sticks.length === 0) {
-        sticks.push(new RectClass(130, 270, `#9a1`, 10, 30, 0));
-        sticks.push(new RectClass(135, 250, `#9a1`, 5, 30, 30));
-        sticks.push(new RectClass(125, 250, `#9a1`, 5, 30, -30));
-    }
-
-    sticks.forEach((el) => {
-        el.gravity = 0;
-        el.active = 1;
-        el.draw()
-    });
-
-}
-
-
-
-
-
-
-
-
-/*_*/

@@ -49,17 +49,14 @@ function throwEl(e) {
 }
 
 function checkCollision(myWall) {
-    let yes = true;
-    for (i = 0; i < Prost.length; i++) {
-        if (myWall.crash(Prost[0])) {
-            myWall.speedX += .1;
-            Prost[i].speedX *= .7;
-            wynik += 50;
-            yes = false;
-            break;
-        } else {
-            yes = true;
-        }
+    if (myWall.crash(Prost[0])) {
+        wynik += 50;
+        Prost[0].speedX *= .7;
+        Prost[0].myGravity -= .4;
+        myWall.speedX += .5;
+        return false;
     }
-    return yes
+    return true;
 }
+
+//change: zmiana logiki po kolizji
