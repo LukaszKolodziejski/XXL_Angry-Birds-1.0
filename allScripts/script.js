@@ -4,17 +4,21 @@ let i, wynik = 0;
 const Prost = [];
 let Wall = [];
 let Grasses = [];
-
+let Catapult = [];
+let Sky = new AllObjects(410, 150, 0, 820, 300, sky);
+let bonus = [];
 setInterval(upDateScene, 20);
 
 
 function upDateScene() {
-    ctx.clearRect(0, 0, 700, 300);
+    ctx.clearRect(0, 0, 820, 300);
     logicGame();
+    Sky.draw();
     Grasses.forEach((e) => e.draw());
     Wall.forEach((e) => e.draw());
+    Catapult.forEach((e) => e.draw());
     Prost.forEach((e) => e.draw());
-    //    slingshot.draw();
+    bonus.forEach((e) => e.draw());
     text();
 }
 
@@ -31,6 +35,7 @@ function logicGame() {
     if (Prost.length) {
         Wall = Wall.filter(checkCollision);
     }
+    //    handlingAudio();
 }
 
 function text() {
@@ -45,7 +50,7 @@ function text() {
 function draw(_this) {
     ctx.save();
     _this.newPos();
-    //    setPositionImages(slingshot, 123, 235, 20, 58);
+
     ctx.translate(_this.x, _this.y);
     ctx.rotate(_this.rotateZ * Math.PI / 180);
     ctx.fillStyle = _this.color;
@@ -59,17 +64,14 @@ function newPos(_this) {
         _this.myGravity += _this.gravity;
         _this.x += _this.speedX;
         _this.y += _this.speedY + _this.myGravity;
-        if (_this.x > 700) deleteElement(500);
+        if (_this.x > 820) deleteElement(500);
         else if (_this.x < 0) deleteElement(500);
-        else if (_this.y + _this.height >= 252) {
-            _this.y = 252 - _this.height / 2;
+        else if (_this.y + _this.height >= 263) {
+            _this.y = 263 - _this.height;
             _this.bounce();
         }
     }
-    if (_this.kindOfObject === grass) {
-        _this.y = 300 - _this.height / 2;
-        //fixme:wstawić tem if do nie zależnej funkcji tak samo jak dla slingshot'a
-    }
+    specialObjectToSetPosition(_this);
     _this.airSlow();
 
 }
@@ -83,3 +85,17 @@ function clicked(_this, a, b) {
         return true;
     } else false;
 }
+
+function specialObjectToSetPosition(obj) {
+    if (obj.kindOfObject === grass) {
+        obj.y = 300 - obj.height / 2;
+    } else if (obj.kindOfObject === slingshot) {
+        obj.y = 250 - obj.height / 2;
+    } else if (obj.kindOfObject === sky) {
+        obj.y = 260 - obj.height / 2;
+    }
+
+}
+//future: sterowanie klawiatyrę użyć w jakiś inny spasób
+//changes: po zdobyciu punktów naliczane są widoczne punkty i jeśli zostaną jakieś ptaki a nie ma pigs to dodatkowe 10000 punktów
+//future: sky się porusza!!!

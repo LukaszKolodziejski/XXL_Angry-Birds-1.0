@@ -6,6 +6,11 @@ window.addEventListener('load', () => {
     const pigSmall = document.getElementById('pigSmall');
     const wood = document.getElementById('wood');
     const grass = document.getElementById('grass');
+    const glass = document.getElementById('glass');
+    const rock = document.getElementById('rock');
+    const sky = document.getElementById('sky');
+    const bonus5000 = document.getElementById('bonus5000');
+    const Mp3 = document.getElementById('Mp3');
     beginPositioningObjects();
 });
 
@@ -49,7 +54,6 @@ canvas.addEventListener('mousemove', (e) => {
     }
 });
 
-//future: clasa niebo i podłoże
 //future: rotacje po odbiciu od elementów
 //future:muzyczka gry i przy zderzaniu
 //future:zwiększenie canvas o co chodzi z margin i clientY

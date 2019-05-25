@@ -10,3 +10,10 @@
 .imageNone {
     display: none;
 }
+
+#responsityCanvas {
+    display: block;
+    /*    width: 54%;*/
+    /*    margin: auto;*/
+    /* od e.ClientX odiąć lewy margin */
+}

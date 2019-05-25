@@ -44,8 +44,7 @@ function throwEl(e) {
     const powerX = x0 - x1;
     const powerY = y0 - y1;
     e.speedX += powerX * .15;
-    e.myGravity += powerY * .5;
-
+    e.myGravity += powerY * .35;
 }
 
 function checkCollision(myWall) {
@@ -54,6 +53,9 @@ function checkCollision(myWall) {
         Prost[0].speedX *= .7;
         Prost[0].myGravity -= .4;
         myWall.speedX += .5;
+        myWall.myGravity -= .4;
+        addBonus(myWall);
+        Mp3.play();
         return false;
     }
     return true;

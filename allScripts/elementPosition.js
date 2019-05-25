@@ -6,6 +6,6 @@ const elementPosition = "" +
     "pppppp" +
     "ppQQpp" +
     "pppppp" +
-    "pppppw" +
-    "pQpppw" +
-    "pppppw";
+    "pppprw" +
+    "pQgrrw" +
+    "ggrrrw";

@@ -34,14 +34,15 @@ class RectClass extends Physics {
 
 
 class AllObjects extends RectClass {
-    constructor(x, y, color, width, height, kindOfObcject) {
+    constructor(x, y, color, width, height, kindOfObcject, show = 1) {
         super(x, y, color, width, height);
         this.kindOfObject = kindOfObcject;
+        this.show = show;
+
     }
 }
-//todo:gry bird spada pod obiektami to one go hamują
-//todo:limit w naciąganiu procy {najlepiej jak by było to widać}
-//todo:moc ptaka >> przyda się przy naliczaniu punktów i odbiciach
+//future:może limit w naciąganiu procy {najlepiej jak by było to widać}
+//change:może moc ptaka >> przyda się przy naliczaniu punktów i odbiciach
 //changes:ptak oddaje energie na elementach
 //changes:zachowanie się elementów po uderzeniu z ptakiem
 //changes:animacja przy uderzaniu jakaś chmuraka
