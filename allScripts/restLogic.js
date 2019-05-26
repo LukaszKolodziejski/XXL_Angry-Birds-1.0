@@ -1,9 +1,6 @@
 function deleteElement(time) {
-    //    let a = Math.floor(Math.random() * 5 + 4);
-    //    let b = Math.floor(Math.random() * 5 + 4);
     setTimeout(() => {
-        //changes:dokładniejsze zmiany przy usuwaniu: speedY..
-        if (Prost.length > 0 && (Prost[0].speedX < .3 && !Prost[0].disableThrow && Prost.length || Prost[0].x > 400 || Prost[0].x < 0)) {
+        if (Prost.length > 0 && (Prost[0].energy < .2 && !Prost[0].disableThrow && Prost.length || Prost[0].x > 600 || Prost[0].x < 0)) {
             Prost.shift();
             if (Prost.length > 0) {
                 jumpOnSlingshot();
@@ -40,7 +37,7 @@ function handlingAudio() {}
 
 function addBonus(obj) {
     if (obj.kindOfObject === pigSmall) {
-        bonus.push(new AllObjects(obj.x, obj.y, 0, 50, 20, bonus5000));
+        bonus.push(new AllObjects(obj.x, obj.y, 0, 50, 20, bonus5k));
         wynik += 5000;
         setTimeout(() => {
             bonus.shift();

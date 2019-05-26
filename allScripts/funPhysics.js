@@ -48,17 +48,19 @@ function throwEl(e) {
 }
 
 function checkCollision(myWall) {
-    if (myWall.crash(Prost[0])) {
+    let bird = Prost[0];
+    let state = myWall.crash(bird);
+    let energyB = bird.power;
+    let energyW = myWall.power;
+    if (state) {
         wynik += 50;
-        Prost[0].speedX *= .7;
-        Prost[0].myGravity -= .4;
-        myWall.speedX += .5;
-        myWall.myGravity -= .4;
+        bird.speedX *= .7;
+        bird.myGravity -= .4;
         addBonus(myWall);
         Mp3.play();
         return false;
     }
     return true;
-}
 
-//change: zmiana logiki po kolizji
+
+}

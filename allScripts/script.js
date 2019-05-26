@@ -1,7 +1,7 @@
 const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
 let i, wynik = 0;
-const Prost = [];
+let Prost = [];
 let Wall = [];
 let Grasses = [];
 let Catapult = [];
@@ -32,6 +32,8 @@ function logicGame() {
             }
         }
     }
+    Prost.forEach((e) => e.countPower());
+    Wall.forEach((e) => e.countPower());
     if (Prost.length) {
         Wall = Wall.filter(checkCollision);
     }
@@ -96,6 +98,8 @@ function specialObjectToSetPosition(obj) {
     }
 
 }
+//todo: sky się porusza!!!
+//todo: więcej elementów i jak znkikają do pokazują bonusy
+//todo: chmurka i pióra przy zderzeniu
 //future: sterowanie klawiatyrę użyć w jakiś inny spasób
 //changes: po zdobyciu punktów naliczane są widoczne punkty i jeśli zostaną jakieś ptaki a nie ma pigs to dodatkowe 10000 punktów
-//future: sky się porusza!!!

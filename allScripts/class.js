@@ -1,16 +1,19 @@
 class Physics {
-    constructor(speedX = 0, speedY = 0, gravity = .2, myGravity = 0, airResistance = .03) {
+    constructor(speedX = 0, speedY = 0, gravity = .2, myGravity = 0, airResistance = .03, power = 0) {
         this.speedX = speedX;
         this.speedY = speedY;
         this.gravity = gravity;
         this.myGravity = myGravity;
         this.airResistance = airResistance;
         this.throwPower = [];
+        this.power = power;
+
     }
     crash = (obj) => crashFlag(this, obj);
     bounce = () => bounce(this);
     airSlow = () => airSlow(this);
     throwEl = () => throwEl(this);
+    countPower = () => countPower(this);
 }
 
 class RectClass extends Physics {
@@ -34,21 +37,13 @@ class RectClass extends Physics {
 
 
 class AllObjects extends RectClass {
-    constructor(x, y, color, width, height, kindOfObcject, show = 1) {
+    constructor(x, y, color, width, height, kindOfObcject) {
         super(x, y, color, width, height);
         this.kindOfObject = kindOfObcject;
-        this.show = show;
-
     }
 }
-//future:może limit w naciąganiu procy {najlepiej jak by było to widać}
-//change:może moc ptaka >> przyda się przy naliczaniu punktów i odbiciach
-//changes:ptak oddaje energie na elementach
-//changes:zachowanie się elementów po uderzeniu z ptakiem
 //changes:animacja przy uderzaniu jakaś chmuraka
 //note:zbudowanie super budowli
-//future:budowa ma mieć kilka elementów (drewno,szkło i kamień)
-//changes:naliczanie punktów za ściany
-//changes:zachowanie się ścian po uderzeniach z ptakiem
+//changes:naliczanie punktów za ściany widoczne
 //future:jak znikną wszystkie piggs to koniec gry
 //future:wyświetlienie wyników i ranking obok i daje gwiazdki zwykłym div

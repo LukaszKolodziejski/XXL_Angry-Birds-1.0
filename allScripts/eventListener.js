@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
     const glass = document.getElementById('glass');
     const rock = document.getElementById('rock');
     const sky = document.getElementById('sky');
-    const bonus5000 = document.getElementById('bonus5000');
+    const bonus5k = document.getElementById('bonus5k');
     const Mp3 = document.getElementById('Mp3');
     beginPositioningObjects();
 });
@@ -54,11 +54,9 @@ canvas.addEventListener('mousemove', (e) => {
     }
 });
 
-//future: rotacje po odbiciu od elementów
-//future:muzyczka gry i przy zderzaniu
-//future:zwiększenie canvas o co chodzi z margin i clientY
-//future:responsywny canvas najlepsze efekty
+//change:muzyczka gry i przy zderzaniu
+//change:zwiększenie canvas o co chodzi z margin i clientY
 //future:ustawienie tła za grą
 //future:wczytywanie gry i powitanie;
 
-//future:własna strona internetowa i domena a pliki na gitHubie
+//future:własna strona internetowa i domena
