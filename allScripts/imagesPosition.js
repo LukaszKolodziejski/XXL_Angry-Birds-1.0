@@ -8,7 +8,6 @@ function setPositionImages(obj, x, y, width, height) {
     ctx.restore();
 
 }
-//let Sky;
 const El = [620, 25, 40, 20, 0, 20, 20];
 /* EL to vector ustawiania elementów w pętli na podstawie funkcji elementPosition():
 (1)> x (2)> przesunięcie x (3)> y (4)> przesunięcie y
@@ -46,6 +45,15 @@ function beginPositioningObjects() {
                     break;
                 case 'r':
                     setPositionUsingVectorEl(rock);
+                    break;
+                case 'K':
+                    setPositionUsingVectorEl(pigKing);
+                    break;
+                case 'H':
+                    setPositionUsingVectorEl(pigHelmet);
+                    break;
+                case 'E':
+                    setPositionUsingVectorEl(eggs);
                     break;
             }
         }

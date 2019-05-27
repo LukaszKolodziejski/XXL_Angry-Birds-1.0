@@ -42,8 +42,6 @@ class AllObjects extends RectClass {
         this.kindOfObject = kindOfObcject;
     }
 }
-//changes:animacja przy uderzaniu jakaś chmuraka
 //note:zbudowanie super budowli
-//changes:naliczanie punktów za ściany widoczne
 //future:jak znikną wszystkie piggs to koniec gry
 //future:wyświetlienie wyników i ranking obok i daje gwiazdki zwykłym div

@@ -5,7 +5,8 @@ let Prost = [];
 let Wall = [];
 let Grasses = [];
 let Catapult = [];
-let Sky = new AllObjects(410, 150, 0, 820, 300, sky);
+let Sky = new AllObjects(700, 150, 0, 1400, 300, sky);
+//let Sky = new AllObjects(410, 150, 0, 820, 300, sky);
 let bonus = [];
 setInterval(upDateScene, 20);
 
@@ -37,7 +38,8 @@ function logicGame() {
     if (Prost.length) {
         Wall = Wall.filter(checkCollision);
     }
-    //    handlingAudio();
+    Sky.speedX = -.125;
+    handlingAudio();
 }
 
 function text() {
@@ -98,8 +100,5 @@ function specialObjectToSetPosition(obj) {
     }
 
 }
-//todo: sky się porusza!!!
-//todo: więcej elementów i jak znkikają do pokazują bonusy
-//todo: chmurka i pióra przy zderzeniu
 //future: sterowanie klawiatyrę użyć w jakiś inny spasób
-//changes: po zdobyciu punktów naliczane są widoczne punkty i jeśli zostaną jakieś ptaki a nie ma pigs to dodatkowe 10000 punktów
+//todo: jeśli zostaną jakieś ptaki a nie ma pigs to dodatkowe 10000 punktów

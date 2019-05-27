@@ -57,7 +57,7 @@ function checkCollision(myWall) {
         bird.speedX *= .7;
         bird.myGravity -= .4;
         addBonus(myWall);
-        Mp3.play();
+        Mp3Crash.play();
         return false;
     }
     return true;

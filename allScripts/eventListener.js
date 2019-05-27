@@ -4,13 +4,23 @@ window.addEventListener('load', () => {
     const blueBird = document.getElementById('blueBird');
     const yellowBird = document.getElementById('yellowBird');
     const pigSmall = document.getElementById('pigSmall');
+
+    const eggs = document.getElementById('eggs');
+    const pigKing = document.getElementById('pigKing');
+    const pigHelmet = document.getElementById('pigHelmet');
+    const bonus100 = document.getElementById('bonus100');
+    const bonus10k_blue = document.getElementById('bonus10k_blue');
+    const bonus10k_gold = document.getElementById('bonus10k_gold');
+    const bonus10k_red = document.getElementById('bonus10k_red');
+
     const wood = document.getElementById('wood');
     const grass = document.getElementById('grass');
     const glass = document.getElementById('glass');
     const rock = document.getElementById('rock');
     const sky = document.getElementById('sky');
     const bonus5k = document.getElementById('bonus5k');
-    const Mp3 = document.getElementById('Mp3');
+    const Mp3Crash = document.getElementById('Mp3Crash');
+    const Mp3Flying = document.getElementById('Mp3Flying');
     beginPositioningObjects();
 });
 

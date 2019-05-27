@@ -33,14 +33,33 @@ function birdCrashWithCatapult() {
         20);
 }
 
-function handlingAudio() {}
+function handlingAudio() {
+    if (Prost.length) {
+        if (Prost[0].power > 3) {
+            Mp3Flying.play();
+        } else {
+            Mp3Flying.pause();
+            Mp3Flying.currentTime = 0;
+        }
+    }
+}
 
 function addBonus(obj) {
     if (obj.kindOfObject === pigSmall) {
-        bonus.push(new AllObjects(obj.x, obj.y, 0, 50, 20, bonus5k));
-        wynik += 5000;
-        setTimeout(() => {
-            bonus.shift();
-        }, 300);
+        kindOfBonus(obj, bonus5k, 5000);
+    } else if (obj.kindOfObject === pigKing) {
+        kindOfBonus(obj, bonus10k_red, 10000);
+    } else if (obj.kindOfObject === pigHelmet) {
+        kindOfBonus(obj, bonus10k_blue, 10000);
+    } else if (obj.kindOfObject === eggs) {
+        kindOfBonus(obj, bonus10k_gold, 10000, 60, 24);
     }
+}
+
+function kindOfBonus(obj, bon, value, w = 50, h = 20) {
+    bonus.push(new AllObjects(obj.x, obj.y, 0, w, h, bon));
+    wynik += value;
+    setTimeout(() => {
+        bonus.shift();
+    }, 300);
 }
