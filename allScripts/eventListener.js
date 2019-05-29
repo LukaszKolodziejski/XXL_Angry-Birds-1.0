@@ -21,6 +21,13 @@ window.addEventListener('load', () => {
     const bonus5k = document.getElementById('bonus5k');
     const Mp3Crash = document.getElementById('Mp3Crash');
     const Mp3Flying = document.getElementById('Mp3Flying');
+    const Mp3Wood = document.getElementById('Mp3Wood');
+    const Mp3Pig1 = document.getElementById('Mp3Pig1');
+    const Mp3Pig2 = document.getElementById('Mp3Pig2');
+    const buttonRepeat = document.getElementById('buttonRepeat');
+    const buttonNext = document.getElementById('buttonNext');
+
+
     beginPositioningObjects();
 });
 
@@ -42,6 +49,8 @@ canvas.addEventListener('mousedown', (e) => {
         Prost[0].y = e.clientY;
         Prost[0].throwPower[0] = Prost[0].x;
         Prost[0].throwPower[2] = Prost[0].y;
+    } else if (ButtonRepeat.clicked(e.clientX, e.clientY)) {
+        location.reload(true);
     }
 });
 
@@ -64,7 +73,7 @@ canvas.addEventListener('mousemove', (e) => {
     }
 });
 
-//change:muzyczka gry i przy zderzaniu
+//change:muzyczka gry
 //change:zwiększenie canvas o co chodzi z margin i clientY
 //future:ustawienie tła za grą
 //future:wczytywanie gry i powitanie;

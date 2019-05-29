@@ -28,6 +28,7 @@ function beginPositioningObjects() {
 
     //    Sky = new AllObjects(0, 0, 0, 820, 300, sky);
     /* ------setting elements position using texture------ */
+
     for (j = 9; j >= 0; j--) {
         for (i = 0; i < 6; i++) {
             switch (elementPosition[i + j * 6]) {

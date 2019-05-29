@@ -2,10 +2,10 @@ const elementPosition = "" +
     "-Qpp--" +
     "HppppQ" +
     "pEppQp" +
-    "pppppp" +
-    "pppppp" +
-    "ppKHpQ" +
+    "gppppp" +
+    "wppppp" +
+    "wpKHpQ" +
     "HpppKp" +
-    "ppQprw" +
-    "pQgrrw" +
-    "ggrrEE";
+    "wpQprw" +
+    "rQgrrw" +
+    "rgrrEE";

@@ -6,9 +6,10 @@ let Wall = [];
 let Grasses = [];
 let Catapult = [];
 let Sky = new AllObjects(700, 150, 0, 1400, 300, sky);
-//let Sky = new AllObjects(410, 150, 0, 820, 300, sky);
+let ButtonRepeat = new AllObjects(350, 150, 0, 60, 60, buttonRepeat);
+let ButtonNext = new AllObjects(440, 150, 0, 60, 60, buttonNext);
 let bonus = [];
-setInterval(upDateScene, 20);
+const gameInterval = setInterval(upDateScene, 20);
 
 
 function upDateScene() {
@@ -20,6 +21,8 @@ function upDateScene() {
     Catapult.forEach((e) => e.draw());
     Prost.forEach((e) => e.draw());
     bonus.forEach((e) => e.draw());
+    ButtonRepeat.draw();
+    ButtonNext.draw();
     text();
 }
 
@@ -53,13 +56,15 @@ function text() {
 
 function draw(_this) {
     ctx.save();
-    _this.newPos();
+    if (_this.show) {
+        _this.newPos();
 
-    ctx.translate(_this.x, _this.y);
-    ctx.rotate(_this.rotateZ * Math.PI / 180);
-    ctx.fillStyle = _this.color;
+        ctx.translate(_this.x, _this.y);
+        ctx.rotate(_this.rotateZ * Math.PI / 180);
+        ctx.fillStyle = _this.color;
 
-    setPositionImages(_this.kindOfObject, _this.width / -2, _this.height / -2, _this.width, _this.height);
+        setPositionImages(_this.kindOfObject, _this.width / -2, _this.height / -2, _this.width, _this.height);
+    }
     ctx.restore();
 }
 
@@ -97,8 +102,14 @@ function specialObjectToSetPosition(obj) {
         obj.y = 250 - obj.height / 2;
     } else if (obj.kindOfObject === sky) {
         obj.y = 260 - obj.height / 2;
+    } else if (obj.kindOfObject === buttonRepeat) {
+        obj.y = 170 - obj.height / 2;
+    } else if (obj.kindOfObject === buttonNext) {
+        obj.y = 170 - obj.height / 2;
     }
 
 }
 //future: sterowanie klawiatyrę użyć w jakiś inny spasób
-//todo: jeśli zostaną jakieś ptaki a nie ma pigs to dodatkowe 10000 punktów
+//change: jeśli zostaną jakieś ptaki a nie ma pigs to dodatkowe 10000 punktów
+//change: zapętlić sky
+//fixme: jak pig znikną to koniec gry

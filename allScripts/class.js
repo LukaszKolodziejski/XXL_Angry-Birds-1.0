@@ -37,10 +37,12 @@ class RectClass extends Physics {
 
 
 class AllObjects extends RectClass {
-    constructor(x, y, color, width, height, kindOfObcject) {
+    constructor(x, y, color, width, height, kindOfObcject, show = 1) {
         super(x, y, color, width, height);
         this.kindOfObject = kindOfObcject;
+        this.show = show;
     }
+    song = (audio) => audio.play();
 }
 //note:zbudowanie super budowli
 //future:jak znikną wszystkie piggs to koniec gry

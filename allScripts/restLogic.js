@@ -1,6 +1,6 @@
 function deleteElement(time) {
     setTimeout(() => {
-        if (Prost.length > 0 && (Prost[0].energy < .2 && !Prost[0].disableThrow && Prost.length || Prost[0].x > 600 || Prost[0].x < 0)) {
+        if (Prost.length > 0 && (Prost[0].energy < .2 && !Prost[0].disableThrow && Prost.length || Prost[0].x > 210 || Prost[0].x < 0)) {
             Prost.shift();
             if (Prost.length > 0) {
                 jumpOnSlingshot();
@@ -35,7 +35,7 @@ function birdCrashWithCatapult() {
 
 function handlingAudio() {
     if (Prost.length) {
-        if (Prost[0].power > 3) {
+        if (Prost[0].speedX > 3) {
             Mp3Flying.play();
         } else {
             Mp3Flying.pause();

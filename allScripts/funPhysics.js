@@ -11,8 +11,8 @@ function airSlow(_this) {
             _this.speedX -= _this.airResistance;
         }
     } else if (_this.speedX < -0.2) {
-        if (ground === _this.y) {
-            _this.speedX += 3 * _this.airResistance;
+        if (ground < _this.y) {
+            _this.speedX += 15 * _this.airResistance;
         } else {
             _this.speedX += _this.airResistance;
         }
@@ -52,15 +52,14 @@ function checkCollision(myWall) {
     let state = myWall.crash(bird);
     let energyB = bird.power;
     let energyW = myWall.power;
+    let yes = true;
     if (state) {
         wynik += 50;
-        bird.speedX *= .7;
-        bird.myGravity -= .4;
         addBonus(myWall);
-        Mp3Crash.play();
-        return false;
+        yes = behaviorBirdAfterColision(bird, myWall);
+        return yes;
     }
-    return true;
+    return yes;
 
 
 }
