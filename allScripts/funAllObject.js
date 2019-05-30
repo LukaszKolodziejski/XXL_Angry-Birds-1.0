@@ -22,7 +22,19 @@ function behaviorBirdAfterColision(bird, obj) {
 }
 
 function conditionEndingGame() {
-    //todo: jeśli tablica prost jest pusta albo nie ma pigs to wtedy buttony się pojawiają
-    //todo: jak najade myszką na buttona to się powiększa
-    //todo: ukryj buttony
+    let listPig = [];
+    Wall.forEach((e) => {
+        let obj = e.kindOfObject;
+        if (obj === pigSmall || obj === pigKing || obj === pigHelmet)
+            listPig.push(1);
+    });
+    if (!Prost.length || !listPig.length) {
+        setTimeout(() => {
+            ButtonNext.show = 1;
+            ButtonRepeat.show = 1;
+        }, 3000);
+    } else {
+        ButtonNext.show = 0;
+        ButtonRepeat.show = 0;
+    }
 }

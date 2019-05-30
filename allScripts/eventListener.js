@@ -71,6 +71,14 @@ canvas.addEventListener('mousemove', (e) => {
         Prost[0].throwPower[3] = Prost[0].y;
         Prost[0].draw();
     }
+    let moveOver = ButtonRepeat.clicked(e.clientX, e.clientY);
+    if (ButtonRepeat.show && moveOver) {
+        ButtonRepeat.width = 61;
+        ButtonRepeat.height = 61;
+    } else {
+        ButtonRepeat.width = 60;
+        ButtonRepeat.height = 60;
+    }
 });
 
 //change:muzyczka gry

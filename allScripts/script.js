@@ -43,6 +43,7 @@ function logicGame() {
     }
     Sky.speedX = -.125;
     handlingAudio();
+    conditionEndingGame();
 }
 
 function text() {
@@ -112,4 +113,3 @@ function specialObjectToSetPosition(obj) {
 //future: sterowanie klawiatyrę użyć w jakiś inny spasób
 //change: jeśli zostaną jakieś ptaki a nie ma pigs to dodatkowe 10000 punktów
 //change: zapętlić sky
-//fixme: jak pig znikną to koniec gry
