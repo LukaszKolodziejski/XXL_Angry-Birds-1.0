@@ -28,6 +28,14 @@ function conditionEndingGame() {
         if (obj === pigSmall || obj === pigKing || obj === pigHelmet)
             listPig.push(1);
     });
+    if (listPig.length == 0) {
+        Prost.forEach((e) => {
+            if (e.showBonus) {
+                e.showBonus = 0;
+                addBonus(e);
+            }
+        });
+    }
     if (!Prost.length || !listPig.length) {
         setTimeout(() => {
             ButtonNext.show = 1;

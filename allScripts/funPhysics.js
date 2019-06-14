@@ -39,6 +39,7 @@ function crashFlag(_this, obj) {
     return crash;
 }
 
+
 function throwEl(e) {
     const [x0, x1, y0, y1] = e.throwPower;
     const powerX = x0 - x1;

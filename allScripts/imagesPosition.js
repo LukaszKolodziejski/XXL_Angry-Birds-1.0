@@ -8,7 +8,7 @@ function setPositionImages(obj, x, y, width, height) {
     ctx.restore();
 
 }
-const El = [620, 25, 40, 20, 0, 20, 20];
+const El = [620, 25, 90, 20, 0, 20, 20];
 /* EL to vector ustawiania elementów w pętli na podstawie funkcji elementPosition():
 (1)> x (2)> przesunięcie x (3)> y (4)> przesunięcie y
 (5)> kolor (6)> szerokość (7)> wysokość */
@@ -18,15 +18,14 @@ function beginPositioningObjects() {
     const S = [25, 25, 25, 25]
     for (i = 0; i < 4; i++) {
         Prost.push(new AllObjects(125 - i * 30, 0, 0, S[i], S[i], kindOfBirds[i]));
+
+        Grasses.push(new AllObjects(50 + i * 310, 0, 0, 310, 60, grass));
+
+        Subsoil.push(new AllObjects(50 + i * 310, 0, 0, 310, 150, subsoil));
     }
 
-    Catapult.push(new AllObjects(160, 135, 0, 20, 58, slingshot));
+    Catapult.push(new AllObjects(160, 0, 0, 20, 58, slingshot));
 
-    for (i = 0; i < 3; i++) {
-        Grasses.push(new AllObjects(50 + i * 310, 300, 0, 310, 60, grass));
-    }
-
-    //    Sky = new AllObjects(0, 0, 0, 820, 300, sky);
     /* ------setting elements position using texture------ */
 
     for (j = 9; j >= 0; j--) {
@@ -64,4 +63,36 @@ function beginPositioningObjects() {
 
 function setPositionUsingVectorEl(obj) {
     Wall.push(new AllObjects(El[0] + i * El[1], El[2] + j * El[3], El[4], El[5], El[6], obj));
+}
+
+function specialObjectToSetPosition(obj) {
+    if (obj.kindOfObject === grass) {
+        obj.y = 350 - obj.height / 2;
+    } else if (obj.kindOfObject === slingshot) {
+        obj.y = 300 - obj.height / 2;
+    } else if (obj.kindOfObject === sky) {
+        obj.y = 310 - obj.height / 2;
+    } else if (obj.kindOfObject === buttonRepeat) {
+        obj.y = 170 - obj.height / 2;
+    } else if (obj.kindOfObject === buttonNext) {
+        obj.y = 170 - obj.height / 2;
+    } else if (obj.kindOfObject === subsoil) {
+        obj.y = 500 - obj.height / 2;
+    }
+
+}
+
+function settingPositionSky(obj) {
+    const speedSky = -0.125;
+    if (obj.x <= 235) {
+        obj.showBonus = 0;
+    } else if (obj.x >= 700) {
+        obj.showBonus = 1;
+    }
+
+    if (obj.showBonus) {
+        obj.speedX = speedSky;
+    } else {
+        obj.speedX = Math.abs(speedSky);
+    }
 }

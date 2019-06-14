@@ -4,23 +4,27 @@ let i, wynik = 0;
 let Prost = [];
 let Wall = [];
 let Grasses = [];
+let Subsoil = [];
 let Catapult = [];
-let Sky = new AllObjects(700, 150, 0, 1400, 300, sky);
+let Sky = new AllObjects(700, 0, 0, 1400, 320, sky);
 let ButtonRepeat = new AllObjects(350, 150, 0, 60, 60, buttonRepeat);
 let ButtonNext = new AllObjects(440, 150, 0, 60, 60, buttonNext);
 let bonus = [];
+const marginX = 320;
+const marginY = 70;
 const gameInterval = setInterval(upDateScene, 20);
 
-
 function upDateScene() {
-    ctx.clearRect(0, 0, 820, 300);
+    ctx.clearRect(0, 0, 920, 500);
     logicGame();
     Sky.draw();
+    Subsoil.forEach((e) => e.draw());
     Grasses.forEach((e) => e.draw());
     Wall.forEach((e) => e.draw());
     Catapult.forEach((e) => e.draw());
     Prost.forEach((e) => e.draw());
     bonus.forEach((e) => e.draw());
+
     ButtonRepeat.draw();
     ButtonNext.draw();
     text();
@@ -41,9 +45,17 @@ function logicGame() {
     if (Prost.length) {
         Wall = Wall.filter(checkCollision);
     }
-    Sky.speedX = -.125;
+    settingPositionSky(Sky);
     handlingAudio();
     conditionEndingGame();
+    Prost.forEach((e) => {
+        if (e.x > 920) {
+            deleteElement(500);
+        } else
+        if (e.x < 0) {
+            deleteElement(500);
+        }
+    });
 }
 
 function text() {
@@ -74,13 +86,12 @@ function newPos(_this) {
         _this.myGravity += _this.gravity;
         _this.x += _this.speedX;
         _this.y += _this.speedY + _this.myGravity;
-        if (_this.x > 820) deleteElement(500);
-        else if (_this.x < 0) deleteElement(500);
-        else if (_this.y + _this.height >= 263) {
-            _this.y = 263 - _this.height;
+        if (_this.y + _this.height >= 313) {
+            _this.y = 313 - _this.height;
             _this.bounce();
         }
     }
+
     specialObjectToSetPosition(_this);
     _this.airSlow();
 
@@ -95,21 +106,3 @@ function clicked(_this, a, b) {
         return true;
     } else false;
 }
-
-function specialObjectToSetPosition(obj) {
-    if (obj.kindOfObject === grass) {
-        obj.y = 300 - obj.height / 2;
-    } else if (obj.kindOfObject === slingshot) {
-        obj.y = 250 - obj.height / 2;
-    } else if (obj.kindOfObject === sky) {
-        obj.y = 260 - obj.height / 2;
-    } else if (obj.kindOfObject === buttonRepeat) {
-        obj.y = 170 - obj.height / 2;
-    } else if (obj.kindOfObject === buttonNext) {
-        obj.y = 170 - obj.height / 2;
-    }
-
-}
-//future: sterowanie klawiatyrę użyć w jakiś inny spasób
-//change: jeśli zostaną jakieś ptaki a nie ma pigs to dodatkowe 10000 punktów
-//change: zapętlić sky

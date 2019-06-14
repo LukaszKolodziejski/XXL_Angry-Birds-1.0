@@ -1,10 +1,14 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 #myCanvas {
     border: 2px solid #000;
+    border-radius: 5%;
+    margin: 70px 320px;
+    box-shadow: 0 8px 16px 0 #111;
 }
 
 .imageNone {
@@ -12,8 +16,10 @@
 }
 
 #responsityCanvas {
-    display: block;
-    /*    width: 54%;*/
-    /*    margin: auto;*/
-    /* od e.ClientX odiąć lewy margin */
+    height: 100vh;
+    width: 100vw;
+    background-image: url(images/Golden_Island.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: auto;
 }

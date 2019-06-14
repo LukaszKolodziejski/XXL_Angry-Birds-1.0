@@ -12,13 +12,15 @@ window.addEventListener('load', () => {
     const bonus10k_blue = document.getElementById('bonus10k_blue');
     const bonus10k_gold = document.getElementById('bonus10k_gold');
     const bonus10k_red = document.getElementById('bonus10k_red');
+    const bonus5k = document.getElementById('bonus5k');
 
     const wood = document.getElementById('wood');
     const grass = document.getElementById('grass');
     const glass = document.getElementById('glass');
     const rock = document.getElementById('rock');
     const sky = document.getElementById('sky');
-    const bonus5k = document.getElementById('bonus5k');
+    const subsoil = document.getElementById('subsoil');
+
     const Mp3Crash = document.getElementById('Mp3Crash');
     const Mp3Flying = document.getElementById('Mp3Flying');
     const Mp3Wood = document.getElementById('Mp3Wood');
@@ -27,29 +29,22 @@ window.addEventListener('load', () => {
     const buttonRepeat = document.getElementById('buttonRepeat');
     const buttonNext = document.getElementById('buttonNext');
 
-
     beginPositioningObjects();
 });
 
-window.addEventListener('keydown', (e) => {
-    Prost.forEach((el) => {
-        if (e.keyCode == 37) el.speedX -= 5;
-        if (e.keyCode == 39) el.speedX += 5;
-        if (e.keyCode == 38) el.myGravity -= 5;
-        if (e.keyCode == 40) el.myGravity += 5;
-    });
-});
-
-
 canvas.addEventListener('mousedown', (e) => {
-    if (Prost.length > 0 && Prost[0].disableThrow && Prost[0].clicked(e.clientX, e.clientY)) {
+    let posX = e.clientX;
+    const positionX = e.clientX - marginX;
+    const positionY = e.clientY - marginY;
+
+    if (Prost.length > 0 && Prost[0].disableThrow && Prost[0].clicked(positionX, positionY)) {
         Prost[0].active = 1;
         Prost[0].disableThrow = 0;
-        Prost[0].x = e.clientX;
-        Prost[0].y = e.clientY;
+        Prost[0].x = positionX;
+        Prost[0].y = positionY;
         Prost[0].throwPower[0] = Prost[0].x;
         Prost[0].throwPower[2] = Prost[0].y;
-    } else if (ButtonRepeat.clicked(e.clientX, e.clientY)) {
+    } else if (ButtonRepeat.clicked(positionX, positionY)) {
         location.reload(true);
     }
 });
@@ -64,26 +59,38 @@ canvas.addEventListener('mouseup', () => {
 });
 
 canvas.addEventListener('mousemove', (e) => {
+    const positionX = e.clientX - marginX;
+    const positionY = e.clientY - marginY;
     if (Prost.length > 0 && Prost[0].active) {
-        Prost[0].x = e.clientX;
-        Prost[0].y = e.clientY;
+        Prost[0].x = positionX;
+        Prost[0].y = positionY;
         Prost[0].throwPower[1] = Prost[0].x;
         Prost[0].throwPower[3] = Prost[0].y;
         Prost[0].draw();
     }
-    let moveOver = ButtonRepeat.clicked(e.clientX, e.clientY);
+    let moveOver = ButtonRepeat.clicked(positionX, positionY);
+    let moveOverR = ButtonNext.clicked(positionX, positionY);
     if (ButtonRepeat.show && moveOver) {
         ButtonRepeat.width = 61;
         ButtonRepeat.height = 61;
+        canvas.style.cursor = 'pointer';
+    } else if (ButtonNext.show && moveOverR) {
+        ButtonNext.width = 61;
+        ButtonNext.height = 61;
+        canvas.style.cursor = 'pointer';
     } else {
         ButtonRepeat.width = 60;
         ButtonRepeat.height = 60;
+        ButtonNext.width = 60;
+        ButtonNext.height = 60;
+        canvas.style.cursor = 'default';
     }
 });
+//fixme:ustawić buttony i powiększyć i wysentrować Score
+//fixme: jak klikne nextbutton to pojawia się nowa plansza
 
-//change:muzyczka gry
+//changes:muzyczka gry
 //change:zwiększenie canvas o co chodzi z margin i clientY
 //future:ustawienie tła za grą
-//future:wczytywanie gry i powitanie;
 
 //future:własna strona internetowa i domena

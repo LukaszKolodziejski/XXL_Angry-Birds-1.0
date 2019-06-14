@@ -53,13 +53,25 @@ function addBonus(obj) {
         kindOfBonus(obj, bonus10k_blue, 10000);
     } else if (obj.kindOfObject === eggs) {
         kindOfBonus(obj, bonus10k_gold, 10000, 60, 24);
+    } else if (obj.kindOfObject === yellowBird) {
+        setTimeout(() => {
+            kindOfBonus(obj, bonus10k_gold, 10000, 60, 24, -50, 500);
+        }, 900);
+    } else if (obj.kindOfObject === blueBird) {
+        setTimeout(() => {
+            kindOfBonus(obj, bonus10k_blue, 10000, 60, 24, -50, 500);
+        }, 600);
+    } else if (obj.kindOfObject === redBird) {
+        setTimeout(() => {
+            kindOfBonus(obj, bonus10k_red, 10000, 60, 24, -50, 500);
+        }, 300);
     }
 }
 
-function kindOfBonus(obj, bon, value, w = 50, h = 20) {
-    bonus.push(new AllObjects(obj.x, obj.y, 0, w, h, bon));
+function kindOfBonus(obj, bon, value, w = 50, h = 20, over = 0, time = 300) {
+    bonus.push(new AllObjects(obj.x, obj.y + over, 0, w, h, bon));
     wynik += value;
     setTimeout(() => {
         bonus.shift();
-    }, 300);
+    }, time);
 }

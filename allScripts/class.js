@@ -37,13 +37,15 @@ class RectClass extends Physics {
 
 
 class AllObjects extends RectClass {
-    constructor(x, y, color, width, height, kindOfObcject, show = 1) {
+    constructor(x, y, color, width, height, kindOfObcject, show = 1, showBonus = 1) {
         super(x, y, color, width, height);
         this.kindOfObject = kindOfObcject;
         this.show = show;
+        this.showBonus = showBonus;
     }
     song = (audio) => audio.play();
 }
 //note:zbudowanie super budowli
-//future:jak znikną wszystkie piggs to koniec gry
-//future:wyświetlienie wyników i ranking obok i daje gwiazdki zwykłym div
+//changes: różne właściwości ptaków jak klikne na yellow albo blue przyspiesza
+//changes: jak jest koniec gry i klikne nextButton to pojawiają się gwiazdki i zsumowanie wszystkich punktów
+//changes: wczytanie gry za pierwszym razem i później już nie
