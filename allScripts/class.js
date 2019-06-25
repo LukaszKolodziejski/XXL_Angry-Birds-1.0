@@ -1,16 +1,19 @@
 class Physics {
-    constructor(speedX = 0, speedY = 0, gravity = .2, myGravity = 0, airResistance = .03) {
+    constructor(speedX = 0, speedY = 0, gravity = .2, myGravity = 0, airResistance = .03, power = 0) {
         this.speedX = speedX;
         this.speedY = speedY;
         this.gravity = gravity;
         this.myGravity = myGravity;
         this.airResistance = airResistance;
         this.throwPower = [];
+        this.power = power;
+
     }
     crash = (obj) => crashFlag(this, obj);
     bounce = () => bounce(this);
     airSlow = () => airSlow(this);
     throwEl = () => throwEl(this);
+    countPower = () => countPower(this);
 }
 
 class RectClass extends Physics {
@@ -25,6 +28,7 @@ class RectClass extends Physics {
         this.rotateZ = rotateZ;
 
         this.active = 0;
+        this.disableThrow = 1;
     }
     draw = () => draw(this);
     newPos = () => newPos(this);
@@ -32,30 +36,14 @@ class RectClass extends Physics {
 }
 
 
-class Catapult extends RectClass {
-    constructor(x, y, color, width, height, rotateZ) {
-        super(x, y, color, width, height, rotateZ);
-        this.body = [];
+class AllObjects extends RectClass {
+    constructor(x, y, color, width, height, kindOfObcject, show = 1, showBonus = 1) {
+        super(x, y, color, width, height);
+        this.kindOfObject = kindOfObcject;
+        this.show = show;
+        this.showBonus = showBonus;
     }
-    drawCatapult = () => makeCatapult(this);
-
+    song = (audio) => audio.play();
 }
-//todo:klasa fizyka dziedziczy po figurze a koło po fizyce
-//todo:klasa bird => koło i inne + ustawienie borderów
-//todo:4 ptaki birds
-//todopo uderzeniu już nie można rzucać ptakiem i ptak znika po czasie
-//todo:limit w naciąganiu procy {najlepiej jak by było to widać}
-//todo:jak ptak zniknie to kolejny wskakuje na miejsce procy
-//todo:moc ptaka >> przyda się przy naliczaniu punktów i odbiciach
-//todo:jak ptak wyleci poza ekran to znika i kolejny wskakuje na proce
-//todo: clasa piggs jako przeciwnik
-//changes:ptak oddaje energie na elementach
-//changes:ładniejsza proca
-//changes:zachowanie się elementów po uderzeniu z ptakiem
-//changes:animacja przy uderzaniu jakaś chmuraka
-//note:zbudowanie super budowli
-//future:budowa ma mieć kilka elementów (drewno,szkło i kamień)
-//changes:naliczanie punktów za ściany
-//changes:zachowanie się ścian po uderzeniach z ptakiem
-//future:jak znikną wszystkie piggs to koniec gry
-//future:wyświetlienie wyników i ranking obok i daje gwiazdki zwykłym div
+//changes: jak jest koniec gry i klikne nextButton to pojawiają się gwiazdki i zsumowanie wszystkich punktów
+//changes: wczytanie gry za pierwszym razem i później już nie

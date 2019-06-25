@@ -8,10 +8,48 @@
 </head>
 
 <body>
-    <canvas id="myCanvas" width="700" height="300"></canvas>
+    <img id="slingshot" class="imageNone" src="images/slingsoht2.png" alt="slingshot">
+    <img id="redBird" class="imageNone" src="images/redbird.png" alt="red bird">
+    <img id="yellowBird" class="imageNone" src="images/yellowbird.png" alt="yellow bird bird">
+    <img id="blueBird" class="imageNone" src="images/bluebird.png" alt="blue bird">
+    <img id="pigSmall" class="imageNone" src="images/pig.png" alt="common pig">
+    <img id="wood" class="imageNone" src="images/wood1.jpg" alt="wood texture">
+    <img id="grass" class="imageNone" src="images/grass.png" alt="grass">
+    <img id="glass" class="imageNone" src="images/glass.jpg" alt="glass">
+    <img id="rock" class="imageNone" src="images/rock.jpg" alt="rock">
+    <img id="bonus5k" class="imageNone" src="images/bonus5k.png" alt="bonus5000">
+    <img id="subsoil" class="imageNone" src="images/subsoil1.jpg" alt="subsoil">
+
+
+    <img id="bonus100" class="imageNone" src="images/100_green.png" alt="100 green">
+    <img id="bonus10k_blue" class="imageNone" src="images/10k_blue.png" alt="10k blue">
+    <img id="bonus10k_gold" class="imageNone" src="images/10k_gold.png" alt="10k gold">
+    <img id="bonus10k_red" class="imageNone" src="images/10k_red.png" alt="10k red">
+    <img id="eggs" class="imageNone" src="images/eggs.png" alt="eggs">
+    <img id="pigKing" class="imageNone" src="images/pigKing.png" alt="pig King">
+    <img id="pigHelmet" class="imageNone" src="images/pigHelmet.png" alt="pid helmet">
+
+    <img id="buttonRepeat" class="imageNone" src="images/buttonRepeat.png" alt="button Repeat">
+    <img id="buttonNext" class="imageNone" src="images/buttonNext.png" alt="button Next">
+
+    <img id="sky" class="imageNone" src="images/sky.jpg" alt="sky">
+    <audio id="Mp3Crash" src="audio/wood%20destroyed%20a1.mp3" type="audio/mpeg"></audio>
+    <audio id="Mp3Flying" src="audio/bird04flying.mp3" type="audio/mpeg"></audio>
+    <audio id="Mp3Wood" src="audio/wood%20damage%20a2.mp3" type="audio/mpeg"></audio>
+    <audio id="Mp3Pig1" src="audio/piglette%20collision%20a1.mp3" type="audio/mpeg"></audio>
+    <audio id="Mp3Pig2" src="audio/piglette%20damage%20a3.mp3" type="audio/mpeg"></audio>
+    <audio id="Mp3MainSong" src="audio/main_theme.mp3" type="audio/mpeg"></audio>
+
+    <div id="responsityCanvas">
+        <canvas id="myCanvas" width="920" height="500"></canvas>
+    </div>
 
     <script src="allScripts/class.js"></script>
-    <script src="allScripts/script.js"></script>
+    <script src="allScripts/funAllObject.js"></script>
     <script src="allScripts/funPhysics.js"></script>
+    <script src="allScripts/restLogic.js"></script>
+    <script src="allScripts/script.js"></script>
     <script src="allScripts/eventListener.js"></script>
+    <script src="allScripts/elementPosition.js"></script>
+    <script src="allScripts/imagesPosition.js"></script>
 </body></html>

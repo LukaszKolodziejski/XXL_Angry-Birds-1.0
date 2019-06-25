@@ -4,18 +4,20 @@ function bounce(_this) {
 
 function airSlow(_this) {
     const ground = 260 - _this.height;
-    if (_this.speedX > 0) {
+    if (_this.speedX > 0.2) {
         if (ground === _this.y) {
             _this.speedX -= 3 * _this.airResistance;
         } else {
             _this.speedX -= _this.airResistance;
         }
-    } else if (_this.speedX < 0) {
-        if (ground === _this.y) {
-            _this.speedX += 3 * _this.airResistance;
+    } else if (_this.speedX < -0.2) {
+        if (ground < _this.y) {
+            _this.speedX += 15 * _this.airResistance;
         } else {
             _this.speedX += _this.airResistance;
         }
+    } else {
+        _this.speedX = 0;
     }
 }
 
@@ -37,28 +39,28 @@ function crashFlag(_this, obj) {
     return crash;
 }
 
+
 function throwEl(e) {
     const [x0, x1, y0, y1] = e.throwPower;
     const powerX = x0 - x1;
     const powerY = y0 - y1;
     e.speedX += powerX * .15;
-    e.myGravity += powerY * .5;
-
+    e.myGravity += powerY * .35;
 }
 
 function checkCollision(myWall) {
-    if (myWall.crash(Prost) && Prost.speedX > 5) {
-        myWall.speedX += .1;
-        Prost.speedX *= .7;
+    let bird = Prost[0];
+    let state = myWall.crash(bird);
+    let energyB = bird.power;
+    let energyW = myWall.power;
+    let yes = true;
+    if (state) {
         wynik += 50;
-        return true;
-    } // else if (wynik && .1 > (Prost.speedX + Prost.speedY)) {
-    //        setTimeout(() => {
-    //            Prost.color = `#2a2`;
-    //        }, 5000);
-    //    }
-    else {
-        //        Prost.speedX *= .9;
-        return !myWall.crash(Prost);
+        addBonus(myWall);
+        yes = behaviorBirdAfterColision(bird, myWall);
+        return yes;
     }
+    return yes;
+
+
 }

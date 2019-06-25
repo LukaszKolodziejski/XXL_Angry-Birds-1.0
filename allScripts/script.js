@@ -1,29 +1,36 @@
-var canvas = document.getElementById('myCanvas');
-var ctx = canvas.getContext('2d');
-let wynik = 0;
-let i;
-const Prost = new RectClass();
-const Slingshot = new Catapult(100, 100, `#441`);
-
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+let i, wynik = 0;
+let Prost = [];
 let Wall = [];
-for (i = 0; i < 6; i++) {
-    for (let j = 0; j < 10; j++) {
-        Wall.push(new RectClass(520 + i * 25, 240 - j * 20, `#8${i+j*.2}${1+i-j*.1}`, 20, 20));
-    }
-}
-
-setInterval(upDateScene, 20);
-
+let Grasses = [];
+let Subsoil = [];
+let Catapult = [];
+let Sky = new AllObjects(700, 0, 0, 1400, 320, sky);
+let ButtonRepeat = new AllObjects(410, 150, 0, 60, 60, buttonRepeat);
+let ButtonNext = new AllObjects(500, 150, 0, 60, 60, buttonNext);
+let bonus = [];
+const marginX = 320;
+const marginY = 70;
+const gameInterval = setInterval(upDateScene, 20);
 
 function upDateScene() {
-    ctx.clearRect(0, 0, 700, 300);
+    ctx.clearRect(0, 0, 920, 500);
     logicGame();
-    text();
+    Sky.draw();
+    Subsoil.forEach((e) => e.draw());
+    Grasses.forEach((e) => e.draw());
     Wall.forEach((e) => e.draw());
-    Prost.draw();
-    Slingshot.drawCatapult();
-}
+    Catapult.forEach((e) => e.draw());
+    Prost.forEach((e) => e.draw());
+    bonus.forEach((e) => e.draw());
+    Mp3MainSong.volume = 0.08;
+    Mp3MainSong.play();
 
+    ButtonRepeat.draw();
+    ButtonNext.draw();
+    text();
+}
 
 function logicGame() {
     let len = Wall.length;
@@ -35,29 +42,44 @@ function logicGame() {
             }
         }
     }
-    Wall.forEach((e) => {
-        //        if (e.crash(Prost)) e.speedX += .1;
+    Prost.forEach((e) => e.countPower());
+    Wall.forEach((e) => e.countPower());
+    if (Prost.length) {
+        Wall = Wall.filter(checkCollision);
+    }
+    settingPositionSky(Sky);
+    handlingAudio();
+    conditionEndingGame();
+    Prost.forEach((e) => {
+        if (e.x > 920) {
+            deleteElement(500);
+        } else
+        if (e.x < 0) {
+            deleteElement(500);
+        }
     });
-    Wall = Wall.filter(checkCollision);
 }
 
 function text() {
     let text = `Score: ${Math.round(wynik)}`;
-    ctx.font = "20px Arial";
+    ctx.font = "25px Arial";
     ctx.fillStyle = "#a22";
-    ctx.fillText(text, 330, 30);
+    ctx.fillText(text, 410, 40);
 }
 
 /* -------------------------RectClass------------------------- */
 
 function draw(_this) {
     ctx.save();
-    _this.newPos();
+    if (_this.show) {
+        _this.newPos();
 
-    ctx.translate(_this.x, _this.y);
-    ctx.rotate(_this.rotateZ * Math.PI / 180);
-    ctx.fillStyle = _this.color;
-    ctx.fillRect(_this.width / -2, _this.height / -2, _this.width, _this.height);
+        ctx.translate(_this.x, _this.y);
+        ctx.rotate(_this.rotateZ * Math.PI / 180);
+        ctx.fillStyle = _this.color;
+
+        setPositionImages(_this.kindOfObject, _this.width / -2, _this.height / -2, _this.width, _this.height);
+    }
     ctx.restore();
 }
 
@@ -66,13 +88,13 @@ function newPos(_this) {
         _this.myGravity += _this.gravity;
         _this.x += _this.speedX;
         _this.y += _this.speedY + _this.myGravity;
-        if (_this.x > 700) _this.x = 0;
-        else if (_this.x < 0) _this.x = 700;
-        else if (_this.y + _this.height >= 260) {
-            _this.y = 260 - _this.height;
+        if (_this.y + _this.height >= 313) {
+            _this.y = 313 - _this.height;
             _this.bounce();
         }
     }
+
+    specialObjectToSetPosition(_this);
     _this.airSlow();
 
 }
@@ -86,30 +108,3 @@ function clicked(_this, a, b) {
         return true;
     } else false;
 }
-
-/* ----------------------------catapult------------------------- */
-
-function makeCatapult(e) {
-    var sticks = e.body;
-    if (sticks.length === 0) {
-        sticks.push(new RectClass(130, 270, `#9a1`, 10, 30, 0));
-        sticks.push(new RectClass(135, 250, `#9a1`, 5, 30, 30));
-        sticks.push(new RectClass(125, 250, `#9a1`, 5, 30, -30));
-    }
-
-    sticks.forEach((el) => {
-        el.gravity = 0;
-        el.active = 1;
-        el.draw()
-    });
-
-}
-
-
-
-
-
-
-
-
-/*_*/
