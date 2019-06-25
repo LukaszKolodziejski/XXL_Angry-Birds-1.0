@@ -26,6 +26,8 @@ window.addEventListener('load', () => {
     const Mp3Wood = document.getElementById('Mp3Wood');
     const Mp3Pig1 = document.getElementById('Mp3Pig1');
     const Mp3Pig2 = document.getElementById('Mp3Pig2');
+    const Mp3MainSong = document.getElementById('Mp3MainSong');
+
     const buttonRepeat = document.getElementById('buttonRepeat');
     const buttonNext = document.getElementById('buttonNext');
 
@@ -61,6 +63,7 @@ canvas.addEventListener('mouseup', () => {
 canvas.addEventListener('mousemove', (e) => {
     const positionX = e.clientX - marginX;
     const positionY = e.clientY - marginY;
+
     if (Prost.length > 0 && Prost[0].active) {
         Prost[0].x = positionX;
         Prost[0].y = positionY;
@@ -86,11 +89,9 @@ canvas.addEventListener('mousemove', (e) => {
         canvas.style.cursor = 'default';
     }
 });
-//fixme:ustawić buttony i powiększyć i wysentrować Score
 //fixme: jak klikne nextbutton to pojawia się nowa plansza
+//todo: poukładać walls na 2 planszach
 
-//changes:muzyczka gry
-//change:zwiększenie canvas o co chodzi z margin i clientY
-//future:ustawienie tła za grą
+//todo: birds podskakują przed procą
 
 //future:własna strona internetowa i domena

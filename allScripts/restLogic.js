@@ -46,11 +46,11 @@ function handlingAudio() {
 
 function addBonus(obj) {
     if (obj.kindOfObject === pigSmall) {
-        kindOfBonus(obj, bonus5k, 5000);
+        kindOfBonus(obj, bonus10k_red, 5000);
     } else if (obj.kindOfObject === pigKing) {
-        kindOfBonus(obj, bonus10k_red, 10000);
+        kindOfBonus(obj, bonus10k_gold, 10000);
     } else if (obj.kindOfObject === pigHelmet) {
-        kindOfBonus(obj, bonus10k_blue, 10000);
+        kindOfBonus(obj, bonus10k_gold, 10000);
     } else if (obj.kindOfObject === eggs) {
         kindOfBonus(obj, bonus10k_gold, 10000, 60, 24);
     } else if (obj.kindOfObject === yellowBird) {

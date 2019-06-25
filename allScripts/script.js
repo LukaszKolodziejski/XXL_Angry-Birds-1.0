@@ -7,8 +7,8 @@ let Grasses = [];
 let Subsoil = [];
 let Catapult = [];
 let Sky = new AllObjects(700, 0, 0, 1400, 320, sky);
-let ButtonRepeat = new AllObjects(350, 150, 0, 60, 60, buttonRepeat);
-let ButtonNext = new AllObjects(440, 150, 0, 60, 60, buttonNext);
+let ButtonRepeat = new AllObjects(410, 150, 0, 60, 60, buttonRepeat);
+let ButtonNext = new AllObjects(500, 150, 0, 60, 60, buttonNext);
 let bonus = [];
 const marginX = 320;
 const marginY = 70;
@@ -24,6 +24,8 @@ function upDateScene() {
     Catapult.forEach((e) => e.draw());
     Prost.forEach((e) => e.draw());
     bonus.forEach((e) => e.draw());
+    Mp3MainSong.volume = 0.08;
+    Mp3MainSong.play();
 
     ButtonRepeat.draw();
     ButtonNext.draw();
@@ -60,9 +62,9 @@ function logicGame() {
 
 function text() {
     let text = `Score: ${Math.round(wynik)}`;
-    ctx.font = "20px Arial";
+    ctx.font = "25px Arial";
     ctx.fillStyle = "#a22";
-    ctx.fillText(text, 330, 30);
+    ctx.fillText(text, 410, 40);
 }
 
 /* -------------------------RectClass------------------------- */

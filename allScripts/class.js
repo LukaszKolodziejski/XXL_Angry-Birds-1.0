@@ -45,7 +45,5 @@ class AllObjects extends RectClass {
     }
     song = (audio) => audio.play();
 }
-//note:zbudowanie super budowli
-//changes: różne właściwości ptaków jak klikne na yellow albo blue przyspiesza
 //changes: jak jest koniec gry i klikne nextButton to pojawiają się gwiazdki i zsumowanie wszystkich punktów
 //changes: wczytanie gry za pierwszym razem i później już nie

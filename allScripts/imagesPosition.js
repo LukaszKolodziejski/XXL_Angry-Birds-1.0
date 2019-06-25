@@ -8,16 +8,15 @@ function setPositionImages(obj, x, y, width, height) {
     ctx.restore();
 
 }
-const El = [620, 25, 90, 20, 0, 20, 20];
+const El = [590, 25, 90, 20, 0, 20, 20];
 /* EL to vector ustawiania elementów w pętli na podstawie funkcji elementPosition():
 (1)> x (2)> przesunięcie x (3)> y (4)> przesunięcie y
 (5)> kolor (6)> szerokość (7)> wysokość */
 
 function beginPositioningObjects() {
-    const kindOfBirds = [redBird, redBird, blueBird, yellowBird];
-    const S = [25, 25, 25, 25]
-    for (i = 0; i < 4; i++) {
-        Prost.push(new AllObjects(125 - i * 30, 0, 0, S[i], S[i], kindOfBirds[i]));
+    const kindOfBirds = [redBird, redBird, blueBird, yellowBird, yellowBird];
+    for (i = 0; i < 5; i++) {
+        Prost.push(new AllObjects(125 - i * 30, 0, 0, 25, 25, kindOfBirds[i]));
 
         Grasses.push(new AllObjects(50 + i * 310, 0, 0, 310, 60, grass));
 
@@ -28,9 +27,9 @@ function beginPositioningObjects() {
 
     /* ------setting elements position using texture------ */
 
-    for (j = 9; j >= 0; j--) {
-        for (i = 0; i < 6; i++) {
-            switch (elementPosition[i + j * 6]) {
+    for (j = 10; j >= 0; j--) {
+        for (i = 0; i < 12; i++) {
+            switch (elementPosition[i + j * 12]) {
                 case 'p':
                     Wall.push(new AllObjects(El[0] + i * El[1], El[2] + j * El[3], `#${j}${i+1}2`, El[5], El[6]));
                     break;
@@ -59,6 +58,7 @@ function beginPositioningObjects() {
         }
     }
     setTimeout(jumpOnSlingshot, 4000);
+
 }
 
 function setPositionUsingVectorEl(obj) {
@@ -73,9 +73,9 @@ function specialObjectToSetPosition(obj) {
     } else if (obj.kindOfObject === sky) {
         obj.y = 310 - obj.height / 2;
     } else if (obj.kindOfObject === buttonRepeat) {
-        obj.y = 170 - obj.height / 2;
+        obj.y = 200 - obj.height / 2;
     } else if (obj.kindOfObject === buttonNext) {
-        obj.y = 170 - obj.height / 2;
+        obj.y = 200 - obj.height / 2;
     } else if (obj.kindOfObject === subsoil) {
         obj.y = 500 - obj.height / 2;
     }
