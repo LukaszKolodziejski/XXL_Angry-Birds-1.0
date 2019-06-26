@@ -45,5 +45,3 @@ class AllObjects extends RectClass {
     }
     song = (audio) => audio.play();
 }
-//changes: jak jest koniec gry i klikne nextButton to pojawiają się gwiazdki i zsumowanie wszystkich punktów
-//changes: wczytanie gry za pierwszym razem i później już nie

@@ -44,7 +44,7 @@ canvas.addEventListener('mousedown', (e) => {
     const positionX = e.clientX - marginX;
     const positionY = e.clientY - marginY;
 
-    if (Prost.length > 0 && Prost[0].disableThrow && Prost[0].clicked(positionX, positionY)) {
+    if (Prost.length > 0 && Prost[0].disableThrow && Prost[0].clicked(positionX, positionY) && Prost[0].crash(Catapult[0])) {
         Prost[0].active = 1;
         Prost[0].disableThrow = 0;
         Prost[0].x = positionX;
@@ -94,9 +94,3 @@ canvas.addEventListener('mousemove', (e) => {
         canvas.style.cursor = 'default';
     }
 });
-//fixme: jak klikne nextbutton to pojawia się nowa plansza
-//todo: poukładać walls na 2 planszach
-
-//todo: birds podskakują przed procą
-
-//future:własna strona internetowa i domena
