@@ -34,6 +34,11 @@ window.addEventListener('load', () => {
     beginPositioningObjects();
 });
 
+window.addEventListener("mousemove", () => {
+    Mp3MainSong.volume = 0.08;
+    Mp3MainSong.play();
+});
+
 canvas.addEventListener('mousedown', (e) => {
     let posX = e.clientX;
     const positionX = e.clientX - marginX;

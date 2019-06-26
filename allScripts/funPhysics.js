@@ -62,5 +62,4 @@ function checkCollision(myWall) {
     }
     return yes;
 
-
 }
