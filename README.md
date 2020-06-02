@@ -1,7 +1,7 @@
 > # Angry-Birds-project-1.0
 >> ## Only Deskop
 ```js
-// This is my First Huge Project XXL // 05.2019 // to check my knowledge in only >> HTML5 + CSS3 + JavaScript <<
+// This is my First Huge Project XXL // 05.2019 // to check my knowledge in only >> JavaScript + HTML5 + CSS3 <<
 // After the project, I thought it was the perfect time to start a higher level front-end development. 
 // Next goal to get: // 06.2019 // ... React.js  
 ```
