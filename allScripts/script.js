@@ -15,7 +15,7 @@ const marginX = 320;
 const marginY = 70;
 const gameInterval = setInterval(upDateScene, 20);
 
-const upDateScene = () => {
+function upDateScene() {
   ctx.clearRect(0, 0, 920, 500);
   logicGame();
   Sky.draw();
@@ -31,7 +31,7 @@ const upDateScene = () => {
   ButtonRepeat.draw();
   ButtonNext.draw();
   text();
-};
+}
 
 function logicGame() {
   let len = Wall.length;
