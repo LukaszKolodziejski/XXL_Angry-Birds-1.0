@@ -6,7 +6,7 @@
 // Next goal to get: // 06.2019 // ... React.js  
 ```
 >>> ### Project Action
-[![Demo CountPages alpha](https://github.com/LukaszKolodziejski/XXL_Angry-Birds-1.0/blob/master/video/videoGIF.gif)](https://lukaszkolodziejski.github.io/XXL_Angry-Birds-1.0/)
+[![Demo CountPages alpha](https://github.com/LukaszKolodziejski/XXL_Angry-Birds-1.0/blob/angryBirds-edits_1.0.1/video/videoGIF.gif)](https://lukaszkolodziejski.github.io/XXL_Angry-Birds-1.0/)
 
 >> # [Go to -> XXL_Angry-Birds-1.0](https://lukaszkolodziejski.github.io/XXL_Angry-Birds-1.0/)
 
