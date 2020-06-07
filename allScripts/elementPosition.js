@@ -11,10 +11,10 @@ const elementPosition = "" +
     "rggrgrwggrgr";
 
 
-// E - jajka
-// H - pig heum
+// E - eggs
+// H - pig helmet
 // Q - pig
-// K - pig król
-// w - drewno
-// g - szkło
-// r - skała
+// K - pig king
+// w - wood
+// g - glass
+// r - rock
