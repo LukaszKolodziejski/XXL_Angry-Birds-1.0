@@ -1,7 +1,7 @@
 > # Angry-Birds-project-1.0
 >> ## Only Deskop
 ```js 
-// This is my First Huge GitHub Project XXL // 05.2019 // to show my knowledge 
+// This is my First Huge GitHub Project XXL // 05.2019 // to show my skills. 
 // I created all of physics in JS without external packages. All of this is only:  
    JavaScript + Canvas + HTML5 + CSS3   
 // After the project, I thought it was the perfect time to build powerful things and incredible magic everywhere.
